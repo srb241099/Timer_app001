@@ -19,11 +19,11 @@ async function releaseScreenAwake(){
 document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible' && targetDate && !paused)keepScreenAwake()});
 function showToast(message){els.toast.textContent=message;els.toast.classList.add('show');setTimeout(()=>els.toast.classList.remove('show'),2200)}
 function setDigit(el,value){if(el.textContent!==value){el.textContent=value;el.classList.remove('tick');void el.offsetWidth;el.classList.add('tick')}}
-function formatTime(date){return date.toLocaleTimeString([], {hour:'numeric',minute:'2-digit'})}
+function formatTime(date){return date.toLocaleTimeString([], {hour:'numeric',minute:'2-digit',second:'2-digit'})}
 function start(){
   const value=$('targetTime').value;if(!value){showToast('Please choose a target time first.');return}
-  const [h,m]=value.split(':').map(Number), now=new Date();
-  targetDate=new Date(now);targetDate.setHours(h,m,0,0);if(targetDate<=now)targetDate.setDate(targetDate.getDate()+1);
+  const [h,m,s=0]=value.split(':').map(Number), now=new Date();
+  targetDate=new Date(now);targetDate.setHours(h,m,s,0);if(targetDate<=now)targetDate.setDate(targetDate.getDate()+1);
   startDate=new Date(now);paused=false;remainingAtPause=0;
   $('pauseBtn').innerHTML='<svg viewBox="0 0 24 24"><path d="M8 5v14M16 5v14"/></svg> Pause';
   els.setup.classList.add('hidden');els.done.classList.add('hidden');els.active.classList.remove('hidden');
