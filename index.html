@@ -50,11 +50,23 @@
 
       <section class="setup-panel" id="setupPanel">
         <div class="setup-copy"><span class="setup-icon"><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="16" rx="3"/><path d="M7.5 3v4M16.5 3v4M3.5 10h17M8 14h3"/></svg></span><div><h2>Choose your finish line</h2><p>Pick the time you want to count down to.</p></div></div>
-        <div class="setup-controls">
+        <div class="mode-switch" role="group" aria-label="Countdown type">
+          <button class="mode-btn active" id="clockMode" type="button">Target clock time</button>
+          <button class="mode-btn" id="durationMode" type="button">Set duration</button>
+        </div>
+        <div class="setup-controls" id="clockControls">
           <label class="time-field"><span class="sr-only">Target time</span><input type="time" id="targetTime" value="19:00"></label>
           <button class="primary-btn" id="startBtn"><span>Start countdown</span><svg viewBox="0 0 24 24"><path d="m9 5 10 7-10 7V5Z"/></svg></button>
         </div>
-        <p class="hint">If the selected time has passed today, the countdown automatically targets tomorrow.</p>
+        <div class="duration-controls hidden" id="durationControls">
+          <label class="duration-field"><span>HOURS</span><input type="number" id="durationHours" min="0" max="999" value="0" inputmode="numeric"></label>
+          <span class="duration-separator">:</span>
+          <label class="duration-field"><span>MINUTES</span><input type="number" id="durationMinutes" min="0" max="59" value="5" inputmode="numeric"></label>
+          <span class="duration-separator">:</span>
+          <label class="duration-field"><span>SECONDS</span><input type="number" id="durationSeconds" min="0" max="59" value="0" inputmode="numeric"></label>
+          <button class="primary-btn" id="startDurationBtn"><span>Start countdown</span><svg viewBox="0 0 24 24"><path d="m9 5 10 7-10 7V5Z"/></svg></button>
+        </div>
+        <p class="hint" id="setupHint">Choose a clock time. If it has passed today, the countdown automatically targets tomorrow.</p>
       </section>
 
       <div class="active-controls hidden" id="activeControls">

@@ -4,11 +4,14 @@ A responsive, installable countdown timer built with HTML, CSS and vanilla JavaS
 
 ## Features
 - Full-screen countdown to a selected local time
+- Choose either a target clock time or a custom hours / minutes / seconds duration
 - Automatically targets tomorrow if today's selected time has passed
 - Pause / resume, change time and fullscreen controls
 - Animated interface with inline SVG vector icons
 - Optional finish chime and vibration (where supported)
 - Offline caching with a service worker
+- Landscape desk mode with large clock-style digits for a phone placed sideways
+- Screen Wake Lock request while counting down (where supported)
 - Installable on supported phones and desktop browsers
 
 ## Publish on GitHub Pages
@@ -28,3 +31,7 @@ A responsive, installable countdown timer built with HTML, CSS and vanilla JavaS
 - The app uses your device's local time.
 - The app must be served from HTTPS (GitHub Pages provides HTTPS) or localhost for PWA installation and service-worker support.
 - Google Fonts are optional; if offline, the app falls back to system fonts.
+
+
+## Desk / landscape use
+Open the app on your phone, rotate it sideways, start the countdown, then tap Fullscreen. On supported browsers the app requests a screen wake lock while the countdown is running. Device battery saver and OS display-timeout settings may still override this; for long office use, keep the phone plugged in and set Auto-Lock / Screen timeout to a longer duration.
